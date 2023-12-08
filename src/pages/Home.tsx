@@ -1,10 +1,20 @@
 import {
+    IonCard,
+    IonCol,
     IonContent,
+    IonGrid,
     IonHeader,
     IonItem,
     IonPage,
+    IonRow,
     IonTitle,
-    IonToolbar
+    IonToolbar,
+    IonRouterLink,
+    IonImg,
+    IonCardHeader,
+    IonCardSubtitle,
+    IonCardTitle,
+    IonCardContent
 } from '@ionic/react'
 import './Home.css'
 import { useEffect, useState } from 'react'
@@ -44,36 +54,71 @@ const Home: React.FC = () => {
     // Kod för att få ut pris i SEK då price är en array med value och currencyCode.
 
     const priceCurrency = (priceArray: any[]) => {
-        const priceInSEK = priceArray.find((price) => price.currencyCode === 'SEK');
-        return priceInSEK ? `${priceInSEK.value} SEK` : 'price is not available';
-    };
-
+        const priceInSEK = priceArray.find(
+            (price) => price.currencyCode === 'SEK'
+        )
+        return priceInSEK ? `${priceInSEK.value} SEK` : 'price is not available'
+    }
 
     return (
         <IonPage>
-            <IonHeader>
-        <IonToolbar>
-          <IonTitle>Home</IonTitle>
-        </IonToolbar>
-      </IonHeader>
             <IonContent>
-                {data &&
-                    data.space.content.map((item: any, index: number) => (
-                        <IonItem key={index} routerLink={item.shoppingItem ? `/product/${item.shoppingItem.id}` : undefined}>
-                            {item.shoppingItem && (
-                                <div className="TestCard">
-                                    <h2> {item.shoppingItem.name_en}</h2>
-                                    <p>{item.shoppingItem.description_en}</p>
-                                    <p>{item.shoppingItem.id}</p>
-                                    <p> {priceCurrency(item.shoppingItem.price)} </p>
-                                    <img src={item.shoppingItem.promoSpace.posterImage.imageUrl} alt='Backgroung image' />
-                                </div>
-                            )}
-                        </IonItem>
-                    ))}
+                <IonGrid>
+                    <IonRow>
+                        {data &&
+                            data.space.content
+                                .filter((item: any) => item.shoppingItem)
+                                .map((item: any, index: number) => (
+                                    <IonCol size="6" size-md="3" key={index}>
+                                        <IonCard className="cardContainer">
+                                            <IonRouterLink
+                                                routerLink={
+                                                    item.shoppingItem
+                                                        ? `/product/${item.shoppingItem.id}`
+                                                        : '#'
+                                                }
+                                            >
+                                                <IonImg
+                                                    src={
+                                                        item.shoppingItem
+                                                            .promoSpace
+                                                            .posterImage
+                                                            .imageUrl
+                                                    }
+                                                    alt="Background image"
+                                                />
+
+                                                <div className="cardContent">
+                                                    <p>
+                                                        {priceCurrency(
+                                                            item.shoppingItem
+                                                                .price
+                                                        )}
+                                                    </p>
+                                                    <div className="cardSubContent">
+                                                    <IonCardTitle className='cardTitle'>
+                                                        {
+                                                            item.shoppingItem
+                                                                .name_en
+                                                        }
+                                                    </IonCardTitle>
+                                                    <IonCardSubtitle className='cardSubTitle'>
+                                                        {
+                                                            item.shoppingItem
+                                                                .description_en
+                                                        }
+                                                    </IonCardSubtitle>
+                                                    </div>
+                                                </div>
+                                            </IonRouterLink>
+                                        </IonCard>
+                                    </IonCol>
+                                ))}
+                    </IonRow>
+                </IonGrid>
             </IonContent>
         </IonPage>
     )
 }
 
-export default Home;
+export default Home
