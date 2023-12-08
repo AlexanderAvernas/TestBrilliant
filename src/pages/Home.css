@@ -4,6 +4,21 @@
 
 }
 
+.cardTop {
+    position: absolute;
+    top: 0; /* Adjust as needed to position the content relative to the bottom */
+    right: 0; /* Adjust as needed to position the content relative to the left */
+    width: 35%;
+  }
+
+  .priceSubtitle {
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-right: 5px;
+    margin-top: 3px;
+  }
+
+
   .cardContent {
     position: absolute;
     bottom: 0; /* Adjust as needed to position the content relative to the bottom */
@@ -13,6 +28,7 @@
 
   .cardSubContent {
     background-color: rgba(0, 0, 0, 0.5);
+    padding-left: 5px;
   }
 
   .cardTitle {

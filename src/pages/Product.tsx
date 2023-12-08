@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const Product: React.FC = () => {
-    // Get the ID from the route parameters
+    // Får ID från route parameter
     const { id } = useParams<{ id: string }>()
 
-    // useState to store data fetched from the API
+    // Använder UseState för att spara ner data
     const [productData, setProductData] = useState<any>(null)
 
-    // Fetch data using the ID
+    // Gör en fetch och använder ID från params
     async function fetchProductData() {
         const apiUrl = `https://api.winnerheads.com/api/shopitems/${id}`
 

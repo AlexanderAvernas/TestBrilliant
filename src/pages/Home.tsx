@@ -87,14 +87,17 @@ const Home: React.FC = () => {
                                                     }
                                                     alt="Background image"
                                                 />
-
-                                                <div className="cardContent">
-                                                    <p>
+                                                <div className="cardTop">
+                                                <IonCardSubtitle className='priceSubtitle'>
                                                         {priceCurrency(
                                                             item.shoppingItem
                                                                 .price
                                                         )}
-                                                    </p>
+                                                    </IonCardSubtitle>
+                                                </div>
+
+                                                <div className="cardContent">
+
                                                     <div className="cardSubContent">
                                                     <IonCardTitle className='cardTitle'>
                                                         {
