@@ -1,13 +1,31 @@
-.cardContainer {
+ /* Style hero image */
+
+ .heroCardContainer {
+    margin: 0;
+ }
+
+ .heraCardHeader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 5%;
+    margin-top: 15%;
+ }
+
+ .heroCardText {
+    font-weight: 800;
+ }
+ /* Style cards med info */
+
+ .cardContainer {
     position: relative;
     margin: 0;
-
 }
 
 .cardTop {
     position: absolute;
-    top: 0; /* Adjust as needed to position the content relative to the bottom */
-    right: 0; /* Adjust as needed to position the content relative to the left */
+    top: 0;
+    right: 0;
     width: 35%;
   }
 
@@ -16,25 +34,29 @@
     text-align: center;
     margin-right: 5px;
     margin-top: 3px;
+    color: white;
   }
 
 
   .cardContent {
     position: absolute;
-    bottom: 0; /* Adjust as needed to position the content relative to the bottom */
-    left: 0; /* Adjust as needed to position the content relative to the left */
+    bottom: 0;
+    left: 0;
     width: 100%;
   }
 
   .cardSubContent {
     background-color: rgba(0, 0, 0, 0.5);
     padding-left: 5px;
+    padding-bottom: 5px;
   }
 
   .cardTitle {
     font-size: 14px;
+    color: white;
   }
 
   .cardSubTitle {
     font-size: 10px;
+    color: white;
   }

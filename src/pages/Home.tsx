@@ -14,7 +14,8 @@ import {
     IonCardHeader,
     IonCardSubtitle,
     IonCardTitle,
-    IonCardContent
+    IonCardContent,
+    IonText
 } from '@ionic/react'
 import './Home.css'
 import { useEffect, useState } from 'react'
@@ -45,7 +46,7 @@ const Home: React.FC = () => {
         }
     }
 
-    // Använder useEffect för att data bara ska hämtas vid första renderingen.
+    // Använder useEffect för att data bara ska hämtas när sidan mountar.
 
     useEffect(() => {
         fetchData()
@@ -62,9 +63,27 @@ const Home: React.FC = () => {
 
     return (
         <IonPage>
+            <IonHeader>
+                <IonToolbar >
+                    <IonTitle>Winnerheads</IonTitle>
+                </IonToolbar>
+            </IonHeader>
             <IonContent>
                 <IonGrid>
                     <IonRow>
+                        <IonCol size='12'>
+                            <IonCard className='heroCardContainer'>
+                                <IonImg src={data && data.space.posterImage.imageUrl}/>
+                                <IonText className='heraCardHeader'>
+                                    <IonCardTitle color="warning" className='heroCardText'>
+                                    {data && data.space.title_en}
+                                    </IonCardTitle>
+                                    <IonCardSubtitle >
+                                    {data && data.space.description_en}
+                                    </IonCardSubtitle>
+                                </IonText>
+                                </IonCard>
+                        </IonCol>
                         {data &&
                             data.space.content
                                 .filter((item: any) => item.shoppingItem)
