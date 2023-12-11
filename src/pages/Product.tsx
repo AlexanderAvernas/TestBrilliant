@@ -94,25 +94,12 @@ const Product: React.FC = () => {
                                 <IonIcon icon={arrowForward} slot='start' />
                             <p className='productSubTitleContent' >{productData.promoSpace.content[0].title_en}</p>
                             </div>
-                            <p> {productData.promoSpace.content[0].description_en} </p>
+                            <div dangerouslySetInnerHTML={{ __html: productData.promoSpace.content[0].description_en }} />
                         </div>
                     ) : (
                         <p>Loading..</p>
                     )}
                 </IonCard>
-                <div>
-                    <h2>Product Details</h2>
-                    {productData ? (
-                        <div>
-                            <h3>{productData.name_en}</h3>
-                            <p>{productData.description_en}</p>
-                            <p>{priceCurrency(productData.price)}</p>
-                            {/* Add more details as needed */}
-                        </div>
-                    ) : (
-                        <p>Loading...</p>
-                    )}
-                </div>
             </IonContent>
         </IonPage>
     )
