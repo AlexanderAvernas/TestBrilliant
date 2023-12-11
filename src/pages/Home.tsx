@@ -73,12 +73,12 @@ const Home: React.FC = () => {
                     <IonRow>
                         <IonCol size='12'>
                             <IonCard className='heroCardContainer'>
-                                <IonImg src={data && data.space.posterImage.imageUrl}/>
-                                <IonText className='heraCardHeader'>
+                                <IonImg className='heroImage' src={data && data.space.posterImage.imageUrl}/>
+                                <IonText className='heroCardHeader'>
                                     <IonCardTitle color="warning" className='heroCardText'>
                                     {data && data.space.title_en}
                                     </IonCardTitle>
-                                    <IonCardSubtitle >
+                                    <IonCardSubtitle className='hereSubCardText' >
                                     {data && data.space.description_en}
                                     </IonCardSubtitle>
                                 </IonText>

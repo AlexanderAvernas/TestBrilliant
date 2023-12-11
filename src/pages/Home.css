@@ -4,7 +4,7 @@
     margin: 0;
  }
 
- .heraCardHeader {
+ .heroCardHeader {
     position: absolute;
     top: 0;
     left: 0;
@@ -15,7 +15,8 @@
  .heroCardText {
     font-weight: 800;
  }
- /* Style cards med info */
+
+ /* Style cardscontent */
 
  .cardContainer {
     position: relative;
@@ -59,4 +60,47 @@
   .cardSubTitle {
     font-size: 10px;
     color: white;
+  }
+
+  @media screen and (min-width: 768px) {
+
+    /* Style hero section */
+
+    .heroCardContainer {
+        padding: 50px;
+     }
+     .heroCardHeader {
+        margin-left: 15%;
+        margin-top: 20%;
+     }
+
+     .heroCardText {
+        font-weight: 800;
+        font-size: 60px;
+     }
+
+     .hereSubCardText {
+        font-size: 40px;
+        color: white;
+     }
+
+     /* style cardcontent */
+
+     .cardContainer {
+
+     }
+
+     .cardTitle {
+        font-size: 18px;
+        color: white;
+      }
+
+      .cardSubTitle {
+        font-size: 14px;
+        color: white;
+      }
+
+
+
+
   }

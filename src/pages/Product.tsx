@@ -77,24 +77,24 @@ const Product: React.FC = () => {
                                 }
                             />
                             <IonText className="heroProductCard">
-                                <IonCardTitle color="warning">
+                                <IonCardTitle color="warning" className='heroProductCardText'>
                                     {productData.name_en}
                                 </IonCardTitle>
-                                <IonCardSubtitle>
+                                <IonCardSubtitle className='heroProductSubCardText' >
                                     {productData.description_en}
                                 </IonCardSubtitle>
                             </IonText>
                             <div className="productPrice">
-                                <IonIcon icon={cart} slot="start" />
+                                <IonIcon icon={cart} slot="start"/>
                                 <IonCardSubtitle className='priceText'>
                                     {priceCurrency(productData.price)}
                                 </IonCardSubtitle>
                             </div>
                             <div className='productSubTitleContainer'>
-                                <IonIcon icon={arrowForward} slot='start' />
+                                <IonIcon icon={arrowForward} slot='start' className='arrowIcon' />
                             <p className='productSubTitleContent' >{productData.promoSpace.content[0].title_en}</p>
                             </div>
-                            <div dangerouslySetInnerHTML={{ __html: productData.promoSpace.content[0].description_en }} />
+                            <div className='bottomSection' dangerouslySetInnerHTML={{ __html: productData.promoSpace.content[0].description_en }} />
                         </div>
                     ) : (
                         <p>Loading..</p>
