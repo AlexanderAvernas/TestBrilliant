@@ -84,12 +84,14 @@ const Home: React.FC = () => {
                                 </IonText>
                                 </IonCard>
                         </IonCol>
+                        {/* Avänder filter då jag endast vill fetcha shoppingItem från arrayen i content.  */}
                         {data &&
                             data.space.content
                                 .filter((item: any) => item.shoppingItem)
                                 .map((item: any, index: number) => (
                                     <IonCol size="6" size-md="3" key={index}>
                                         <IonCard className="cardContainer">
+                                            {/* Skickar med shoppingItem.id till Product.tsx */}
                                             <IonRouterLink
                                                 routerLink={
                                                     item.shoppingItem

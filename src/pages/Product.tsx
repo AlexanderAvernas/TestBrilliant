@@ -44,10 +44,10 @@ const Product: React.FC = () => {
         }
     }
 
-    // Använder useEffect för att data bara ska hämtas när sidan mountar
+    // Använder useEffect för att data bara ska hämtas när sidan mountar och lägger in ID som dependecy
     useEffect(() => {
         fetchProductData()
-    }, [id]) // Add id to dependency array to re-fetch when id changes
+    }, [id])
 
     // Kod för att få ut pris i SEK då price är en array med value och currencyCode.
     const priceCurrency = (priceArray: any[]) => {
